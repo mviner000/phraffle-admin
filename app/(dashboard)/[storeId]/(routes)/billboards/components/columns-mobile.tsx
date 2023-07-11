@@ -20,7 +20,7 @@ export type BillboardColumn = {
   imageUrl: string;
 };
 
-export const columns: ColumnDef<BillboardColumn>[] = [
+export const columnsmobile: ColumnDef<BillboardColumn>[] = [
   {
     id: "select",
     header: ({ table }) => (
@@ -40,14 +40,6 @@ export const columns: ColumnDef<BillboardColumn>[] = [
     enableSorting: false,
     enableHiding: false,
   },
-
-  {
-    accessorKey: "label",
-    header: "Label",
-    cell: ({ row }) => {
-      return <CellLabel url={row.original} label={row.original.label} />;
-    },
-  },
   {
     accessorKey: "imageUrl",
     header: "Image",
@@ -55,7 +47,23 @@ export const columns: ColumnDef<BillboardColumn>[] = [
       return <CellImage url={row.original} imageUrl={row.original.imageUrl} />;
     },
   },
-
+  {
+    accessorKey: "label",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Label
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
+    cell: ({ row }) => {
+      return <CellLabel url={row.original} label={row.original.label} />;
+    },
+  },
   {
     id: "actions",
     cell: ({ row }) => <CellAction data={row.original} />,
