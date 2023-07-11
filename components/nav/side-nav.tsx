@@ -18,6 +18,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export function SideNav({
   className,
@@ -98,8 +99,9 @@ export function SideNav({
               </Link>
             ))}
           </div>
-          <div className="flex items-center mb-4 md:order-2">
+          <div className="flex items-center mb-4 md:order-2 space-x-2">
             <UserButton afterSignOutUrl="/" />
+            <ThemeToggle />
           </div>
           <SheetFooter>
             <SheetClose asChild>
