@@ -1,24 +1,8 @@
 "use client";
 
 import { useParams, usePathname } from "next/navigation";
-import { UserButton } from "@clerk/nextjs";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-
-import { Menu, Search } from "lucide-react";
-
-import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-import { SearchInput } from "../ui/search-input";
 
 export function CategoriesNav({
   className,
@@ -72,22 +56,20 @@ export function CategoriesNav({
 
   return (
     <>
-      <div className="p-4 mt-[-1rem] flex items-center space-x-4 lg:space-x-6">
-        {routes.map((route) => (
-          <Link
-            key={route.href}
-            href={route.href}
-            className={cn(
-              "text-sm font-medium transition-colors hover:text-primary",
-              route.active
-                ? "text-black dark:text-white"
-                : "text-muted-foreground"
-            )}
-          >
-            {route.label}
-          </Link>
-        ))}
-      </div>
+      {routes.map((route) => (
+        <Link
+          key={route.href}
+          href={route.href}
+          className={cn(
+            "text-sm font-medium transition-colors hover:text-primary",
+            route.active
+              ? "text-black dark:text-white"
+              : "text-muted-foreground"
+          )}
+        >
+          {route.label}
+        </Link>
+      ))}
     </>
   );
 }

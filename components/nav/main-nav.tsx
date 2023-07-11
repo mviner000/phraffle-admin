@@ -10,7 +10,7 @@ export function MainNav() {
   return (
     <>
       <div className="md:hidden">
-        <SideNav />
+        <UserButton afterSignOutUrl="/" />
       </div>
 
       <div className="hidden md:block">

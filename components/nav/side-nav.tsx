@@ -5,7 +5,7 @@ import { UserButton } from "@clerk/nextjs";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
-import { Menu, Search } from "lucide-react";
+import { Menu } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -78,7 +78,7 @@ export function SideNav({
             <Menu />
           </Button>
         </SheetTrigger>
-        <SheetContent side="right" className="w-[180px]">
+        <SheetContent side="left" className="w-[180px]">
           <SheetHeader className="text-left">
             <SheetTitle>🚀 RafflePh</SheetTitle>
             <SheetDescription>Win Anything!</SheetDescription>
